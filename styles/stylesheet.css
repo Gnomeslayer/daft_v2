@@ -15,14 +15,34 @@ body{
 
 #credits
 {
-    width: 100%;
+    width: 75vw;
     min-height: 10vh;
+
     color: rgb(161, 161, 161);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+
     font-size: 1.5em;
+
     position: absolute;
+    margin-left: 15vw;
     margin-top: 25vh;
+   
+}
+
+#budget
+{
+    width: 75vw;
+    min-height: 10vh;
+
+    color: rgb(161, 161, 161);
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 1.5em;
+
+    position: absolute;
+    margin-left: 15vw;
+    margin-top: 45vh;
 }
 
 .display-1s
@@ -101,3 +121,5 @@ body{
     font-size: 5em;
     margin: auto;
 }
+
+
