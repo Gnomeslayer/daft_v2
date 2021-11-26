@@ -17,6 +17,15 @@
             View the video version <a href="https://youtu.be/y-q-BY74Nws">here</a><br>
         As I am too lazy to make this look good and work on mobile it's recommended that mobile users watch the video.
     </div>
+
+
+    <div id="budget" style="display: none;">
+        Unfortunately, due to budget cutbacks, the sound guy who was responsible for skipping directly to the fun part (the lyrics) quit.
+        Mumbling something about not enough donuts or something. But that's absolutely fine, we can handle a few seconds of wait time. Look! I even provided you with a countdown timer to show when the fun part will begin!
+        <br><br>
+        But if I have to be honest, I couldn't figure out how to get it to work with the timeskip without some black magic. So if you have some black magic, I'd gladly take some.
+    </div>
+
     <div id="topleft"></div>
     <div id="topright"></div>
     <div id="bottomleft"></div>
@@ -68,7 +77,7 @@
         async function init() 
         {
             // do your stuff here, audio has been loaded
-            await sleep(2500);
+            await sleep(5000);
             mybutton.style.display = "block";
             
         }
@@ -89,6 +98,7 @@
         var topright = document.getElementById("topright");
         var bottomleft = document.getElementById("bottomleft");
         var bottomright = document.getElementById("bottomright");
+        var budgets = document.getElementById("budget");
         var lyriccounter = 0;
         var style = 1;
         var classstyle = "display-1s";
@@ -190,11 +200,30 @@
             
         }
 
+
+        
+
         async function center()
         {
             style = 1;
+
+            var timeleft = 48;
+            var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+            }
+            document.getElementById("topleft").innerHTML = timeleft;
+            timeleft -= 1;
+            }, 1000);
+
+            budgets.style.display = "block";
+            
+            
+            await sleep(49500);
+            budgets.style.display = "none";
             myclear();
-            await sleep(6500);
+
+            await sleep(2000);
 
             
             mydisplay("Work it", style);
@@ -769,9 +798,9 @@
             mycredit.style.display = "none";
 
             play(0);
-            myaudio.currentTime = 45;
             myaudio.volume = 0.75;
             center();
+            
         }
 
         function mystop()
